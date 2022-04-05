@@ -1,0 +1,311 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled2.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyNiVf6gFX4pXos1ir1C9M4L",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/saeonbaek/Spring2022/blob/main/20220328_ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vHaQ-aj0EL-K",
+        "outputId": "0e6dc9b0-39e6-493a-cc49-2126c944c5a7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting gradio\n",
+            "  Downloading gradio-2.9.1-py3-none-any.whl (1.7 MB)\n",
+            "\u001b[K     |████████████████████████████████| 1.7 MB 5.0 MB/s \n",
+            "\u001b[?25hCollecting orjson\n",
+            "  Downloading orjson-3.6.7-cp37-cp37m-manylinux_2_24_x86_64.whl (255 kB)\n",
+            "\u001b[K     |████████████████████████████████| 255 kB 16.4 MB/s \n",
+            "\u001b[?25hCollecting pydub\n",
+            "  Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)\n",
+            "Collecting ffmpy\n",
+            "  Downloading ffmpy-0.3.0.tar.gz (4.8 kB)\n",
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.7/dist-packages (from gradio) (3.2.2)\n",
+            "Collecting markdown-it-py[linkify,plugins]\n",
+            "  Downloading markdown_it_py-2.0.1-py3-none-any.whl (84 kB)\n",
+            "\u001b[K     |████████████████████████████████| 84 kB 2.4 MB/s \n",
+            "\u001b[?25hCollecting analytics-python\n",
+            "  Downloading analytics_python-1.4.0-py2.py3-none-any.whl (15 kB)\n",
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from gradio) (1.3.5)\n",
+            "Collecting aiohttp\n",
+            "  Downloading aiohttp-3.8.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.1 MB)\n",
+            "\u001b[K     |████████████████████████████████| 1.1 MB 43.5 MB/s \n",
+            "\u001b[?25hCollecting python-multipart\n",
+            "  Downloading python-multipart-0.0.5.tar.gz (32 kB)\n",
+            "Collecting uvicorn\n",
+            "  Downloading uvicorn-0.17.6-py3-none-any.whl (53 kB)\n",
+            "\u001b[K     |████████████████████████████████| 53 kB 1.8 MB/s \n",
+            "\u001b[?25hCollecting paramiko\n",
+            "  Downloading paramiko-2.10.3-py2.py3-none-any.whl (211 kB)\n",
+            "\u001b[K     |████████████████████████████████| 211 kB 56.7 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from gradio) (2.23.0)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from gradio) (1.21.5)\n",
+            "Requirement already satisfied: pillow in /usr/local/lib/python3.7/dist-packages (from gradio) (7.1.2)\n",
+            "Collecting pycryptodome\n",
+            "  Downloading pycryptodome-3.14.1-cp35-abi3-manylinux2010_x86_64.whl (2.0 MB)\n",
+            "\u001b[K     |████████████████████████████████| 2.0 MB 41.7 MB/s \n",
+            "\u001b[?25hCollecting fastapi\n",
+            "  Downloading fastapi-0.75.1-py3-none-any.whl (54 kB)\n",
+            "\u001b[K     |████████████████████████████████| 54 kB 2.4 MB/s \n",
+            "\u001b[?25hCollecting asynctest==0.13.0\n",
+            "  Downloading asynctest-0.13.0-py3-none-any.whl (26 kB)\n",
+            "Collecting multidict<7.0,>=4.5\n",
+            "  Downloading multidict-6.0.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (94 kB)\n",
+            "\u001b[K     |████████████████████████████████| 94 kB 603 kB/s \n",
+            "\u001b[?25hRequirement already satisfied: charset-normalizer<3.0,>=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp->gradio) (2.0.12)\n",
+            "Collecting yarl<2.0,>=1.0\n",
+            "  Downloading yarl-1.7.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (271 kB)\n",
+            "\u001b[K     |████████████████████████████████| 271 kB 52.1 MB/s \n",
+            "\u001b[?25hCollecting frozenlist>=1.1.1\n",
+            "  Downloading frozenlist-1.3.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (144 kB)\n",
+            "\u001b[K     |████████████████████████████████| 144 kB 49.2 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp->gradio) (21.4.0)\n",
+            "Collecting async-timeout<5.0,>=4.0.0a3\n",
+            "  Downloading async_timeout-4.0.2-py3-none-any.whl (5.8 kB)\n",
+            "Requirement already satisfied: typing-extensions>=3.7.4 in /usr/local/lib/python3.7/dist-packages (from aiohttp->gradio) (3.10.0.2)\n",
+            "Collecting aiosignal>=1.1.2\n",
+            "  Downloading aiosignal-1.2.0-py3-none-any.whl (8.2 kB)\n",
+            "Requirement already satisfied: idna>=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl<2.0,>=1.0->aiohttp->gradio) (2.10)\n",
+            "Requirement already satisfied: python-dateutil>2.1 in /usr/local/lib/python3.7/dist-packages (from analytics-python->gradio) (2.8.2)\n",
+            "Collecting backoff==1.10.0\n",
+            "  Downloading backoff-1.10.0-py2.py3-none-any.whl (31 kB)\n",
+            "Collecting monotonic>=1.5\n",
+            "  Downloading monotonic-1.6-py2.py3-none-any.whl (8.2 kB)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.7/dist-packages (from analytics-python->gradio) (1.15.0)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests->gradio) (2021.10.8)\n",
+            "Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests->gradio) (3.0.4)\n",
+            "Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests->gradio) (1.24.3)\n",
+            "Collecting pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,<2.0.0,>=1.6.2\n",
+            "  Downloading pydantic-1.9.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.9 MB)\n",
+            "\u001b[K     |████████████████████████████████| 10.9 MB 34.4 MB/s \n",
+            "\u001b[?25hCollecting starlette==0.17.1\n",
+            "  Downloading starlette-0.17.1-py3-none-any.whl (58 kB)\n",
+            "\u001b[K     |████████████████████████████████| 58 kB 4.9 MB/s \n",
+            "\u001b[?25hCollecting anyio<4,>=3.0.0\n",
+            "  Downloading anyio-3.5.0-py3-none-any.whl (79 kB)\n",
+            "\u001b[K     |████████████████████████████████| 79 kB 7.5 MB/s \n",
+            "\u001b[?25hCollecting sniffio>=1.1\n",
+            "  Downloading sniffio-1.2.0-py3-none-any.whl (10 kB)\n",
+            "Collecting mdurl~=0.1\n",
+            "  Downloading mdurl-0.1.0-py3-none-any.whl (11 kB)\n",
+            "Collecting linkify-it-py~=1.0\n",
+            "  Downloading linkify_it_py-1.0.3-py3-none-any.whl (19 kB)\n",
+            "Collecting mdit-py-plugins\n",
+            "  Downloading mdit_py_plugins-0.3.0-py3-none-any.whl (43 kB)\n",
+            "\u001b[K     |████████████████████████████████| 43 kB 1.5 MB/s \n",
+            "\u001b[?25hCollecting uc-micro-py\n",
+            "  Downloading uc_micro_py-1.0.1-py3-none-any.whl (6.2 kB)\n",
+            "Requirement already satisfied: kiwisolver>=1.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib->gradio) (1.4.0)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.7/dist-packages (from matplotlib->gradio) (0.11.0)\n",
+            "Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib->gradio) (3.0.7)\n",
+            "Requirement already satisfied: pytz>=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas->gradio) (2018.9)\n",
+            "Collecting pynacl>=1.0.1\n",
+            "  Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (856 kB)\n",
+            "\u001b[K     |████████████████████████████████| 856 kB 57.3 MB/s \n",
+            "\u001b[?25hCollecting bcrypt>=3.1.3\n",
+            "  Downloading bcrypt-3.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (61 kB)\n",
+            "\u001b[K     |████████████████████████████████| 61 kB 421 kB/s \n",
+            "\u001b[?25hCollecting cryptography>=2.5\n",
+            "  Downloading cryptography-36.0.2-cp36-abi3-manylinux_2_24_x86_64.whl (3.6 MB)\n",
+            "\u001b[K     |████████████████████████████████| 3.6 MB 41.5 MB/s \n",
+            "\u001b[?25hRequirement already satisfied: cffi>=1.1 in /usr/local/lib/python3.7/dist-packages (from bcrypt>=3.1.3->paramiko->gradio) (1.15.0)\n",
+            "Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi>=1.1->bcrypt>=3.1.3->paramiko->gradio) (2.21)\n",
+            "Collecting asgiref>=3.4.0\n",
+            "  Downloading asgiref-3.5.0-py3-none-any.whl (22 kB)\n",
+            "Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.7/dist-packages (from uvicorn->gradio) (7.1.2)\n",
+            "Collecting h11>=0.8\n",
+            "  Downloading h11-0.13.0-py3-none-any.whl (58 kB)\n",
+            "\u001b[K     |████████████████████████████████| 58 kB 5.5 MB/s \n",
+            "\u001b[?25hBuilding wheels for collected packages: ffmpy, python-multipart\n",
+            "  Building wheel for ffmpy (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for ffmpy: filename=ffmpy-0.3.0-py3-none-any.whl size=4712 sha256=db4995a8ab3978c0b1f412c5116bfb4e596345d889fc1587fa75b62cc5e3b27f\n",
+            "  Stored in directory: /root/.cache/pip/wheels/13/e4/6c/e8059816e86796a597c6e6b0d4c880630f51a1fcfa0befd5e6\n",
+            "  Building wheel for python-multipart (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for python-multipart: filename=python_multipart-0.0.5-py3-none-any.whl size=31678 sha256=1c4d610daabe570be097ee6edf152f30e9f1fda9cc45e41bc997eaa0a0ad4693\n",
+            "  Stored in directory: /root/.cache/pip/wheels/2c/41/7c/bfd1c180534ffdcc0972f78c5758f89881602175d48a8bcd2c\n",
+            "Successfully built ffmpy python-multipart\n",
+            "Installing collected packages: sniffio, mdurl, uc-micro-py, multidict, markdown-it-py, frozenlist, anyio, yarl, starlette, pynacl, pydantic, monotonic, mdit-py-plugins, linkify-it-py, h11, cryptography, bcrypt, backoff, asynctest, async-timeout, asgiref, aiosignal, uvicorn, python-multipart, pydub, pycryptodome, paramiko, orjson, ffmpy, fastapi, analytics-python, aiohttp, gradio\n",
+            "Successfully installed aiohttp-3.8.1 aiosignal-1.2.0 analytics-python-1.4.0 anyio-3.5.0 asgiref-3.5.0 async-timeout-4.0.2 asynctest-0.13.0 backoff-1.10.0 bcrypt-3.2.0 cryptography-36.0.2 fastapi-0.75.1 ffmpy-0.3.0 frozenlist-1.3.0 gradio-2.9.1 h11-0.13.0 linkify-it-py-1.0.3 markdown-it-py-2.0.1 mdit-py-plugins-0.3.0 mdurl-0.1.0 monotonic-1.6 multidict-6.0.2 orjson-3.6.7 paramiko-2.10.3 pycryptodome-3.14.1 pydantic-1.9.0 pydub-0.25.1 pynacl-1.5.0 python-multipart-0.0.5 sniffio-1.2.0 starlette-0.17.1 uc-micro-py-1.0.1 uvicorn-0.17.6 yarl-1.7.2\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install gradio\n",
+        "import gradio as gr\n",
+        "import requests\n",
+        "import pandas as pd"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "URL = ('http://apis.data.go.kr/3130000/openapi/tourDest/gettourDest?serviceKey=TlcXn777i%2Bhr0EAHUj%2B%2Fa1kuURjjes4xe%2F7nG8QRokc6yPxDmQKf1cV1iIvGt3yDj1FMvL%2F6ugoBd6imTZcR1g%3D%3D&type=json&filterKey=mapo_hotspot&filterValues=연트럴파크&numOfRows=200&pageNo=0')\n",
+        "response = requests.get(URL)"
+      ],
+      "metadata": {
+        "id": "zy5eRNkIEOan"
+      },
+      "execution_count": 42,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "response"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XlnXOfCcEp4n",
+        "outputId": "342021eb-547d-4d9d-c12e-b529d88ceb43"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<Response [200]>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "r = response.json()\n",
+        "r"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mH941qOSGOF0",
+        "outputId": "8d53e708-6458-4e70-cbd8-d7b7591a96e9"
+      },
+      "execution_count": 74,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'items': [{'actual_area': '228210.76',\n",
+              "   'address': '서울시 마포구 연남동 375일대',\n",
+              "   'mapo_hotspot': '연트럴파크',\n",
+              "   'naver_area': '30878.7',\n",
+              "   'no_SNS_comment': '32735',\n",
+              "   'no_awareness_reponse': '534',\n",
+              "   'no_store': '785',\n",
+              "   'no_turist': '36557963',\n",
+              "   'number': '1',\n",
+              "   'store_alley_extention': '4785.13'}],\n",
+              " 'numOfRows': 200,\n",
+              " 'pageNo': 0,\n",
+              " 'resultCode': '0',\n",
+              " 'resultMsg': 'SUCCESS',\n",
+              " 'totalCount': 1}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 74
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "items = r['items'][0]\n",
+        "\n",
+        "address= [item['address'] for item in items]\n",
+        "\n",
+        "address= pd.Series(address)\n",
+        "\n",
+        "df = pd.DataFrame({ 'address': address })"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 376
+        },
+        "id": "BNi5jtnWG2vN",
+        "outputId": "79fbd8ef-3fb9-46c9-b33a-c90ca5548e16"
+      },
+      "execution_count": 84,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-84-2a5d9fd330ce>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mitems\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mr\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'items'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0maddress\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mitem\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'address'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mitem\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mitems\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0maddress\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mSeries\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0maddress\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m<ipython-input-84-2a5d9fd330ce>\u001b[0m in \u001b[0;36m<listcomp>\u001b[0;34m(.0)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mitems\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mr\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'items'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0maddress\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mitem\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'address'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mitem\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mitems\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0maddress\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mSeries\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0maddress\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: string indices must be integers"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 137
+        },
+        "id": "cp1ajHfcL-FE",
+        "outputId": "f549b323-c521-4d8b-b39e-d8ea6e5d2286"
+      },
+      "execution_count": 55,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-55-93d55eaa2698>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    def test(items)\u001b[0m\n\u001b[0m                   ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
