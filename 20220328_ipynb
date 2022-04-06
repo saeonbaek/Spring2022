@@ -5,7 +5,7 @@
     "colab": {
       "name": "Untitled2.ipynb",
       "provenance": [],
-      "authorship_tag": "ABX9TyNkAYYe+dh45wc1wSiONjDU",
+      "authorship_tag": "ABX9TyP7xA8+E0xoHvcz8fMqjHVV",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -217,7 +217,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "mH941qOSGOF0",
-        "outputId": "ab426f61-1bd9-4d95-86c5-5021056e4edd"
+        "outputId": "8047c3a9-a7fe-4d84-c957-3b559a89fead"
       },
       "execution_count": null,
       "outputs": [
@@ -243,7 +243,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 8
+          "execution_count": 51
         }
       ]
     },
@@ -276,7 +276,6 @@
         "address = pd.Series(address)\n",
         "\n",
         "df = pd.DataFrame({ 'address': address})\n",
-        "\n",
         " return df"
       ],
       "metadata": {
@@ -285,7 +284,7 @@
           "height": 137
         },
         "id": "5PQqw9YygIvH",
-        "outputId": "08e8673c-9984-47a8-aaf0-f942d0af9691"
+        "outputId": "ffc0fa9e-48f7-4932-d4e7-4179c25da1b1"
       },
       "execution_count": null,
       "outputs": [
@@ -294,7 +293,7 @@
           "ename": "IndentationError",
           "evalue": "ignored",
           "traceback": [
-            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-48-50f93f1728eb>\"\u001b[0;36m, line \u001b[0;32m14\u001b[0m\n\u001b[0;31m    return df\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m unexpected indent\n"
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-57-8aaad92cb650>\"\u001b[0;36m, line \u001b[0;32m13\u001b[0m\n\u001b[0;31m    return df\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m unexpected indent\n"
           ]
         }
       ]
