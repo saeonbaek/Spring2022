@@ -3,9 +3,10 @@
   "nbformat_minor": 0,
   "metadata": {
     "colab": {
-      "name": "Untitled2.ipynb",
+      "name": "20220328_ipynb",
       "provenance": [],
-      "authorship_tag": "ABX9TyP7xA8+E0xoHvcz8fMqjHVV",
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyPGT9pAfoAIeHTC4U+W8WST",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -26,6 +27,15 @@
       "source": [
         "<a href=\"https://colab.research.google.com/github/saeonbaek/Spring2022/blob/main/20220328_ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
       ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "WbVZ8FtAmHKY"
+      }
     },
     {
       "cell_type": "code",
